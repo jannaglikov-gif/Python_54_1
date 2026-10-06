@@ -1,6 +1,3 @@
-from Lesson1_Remember.hw1 import email
-
-
 def greet(name):
     return f"Hello,{name}!"
 
