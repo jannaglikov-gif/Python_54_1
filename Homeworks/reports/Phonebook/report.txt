@@ -1,0 +1,5 @@
+Project: Phonebook
+Tester: Anna
+Passed tests: 18
+Failed tests: 2
+Total tests: 20

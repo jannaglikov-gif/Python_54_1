@@ -119,9 +119,61 @@ def create_logs_folder():
     folder = pathlib.Path("logs")
     folder.mkdir(exist_ok = True)
     file_path = folder / "app.txt"
+
     with open(file_path, "w", encoding = "utf-8") as file:
         file.write("Application started successfully!")
+
     with open(file_path, "r", encoding="utf-8") as file:
         print(file.read())
+
 create_logs_folder()
 # ------------------------------------------------------------------
+print()
+print("___________★★ Advanced ★★__________\n" )
+# create_test_report(project_name, tester_name, passed, failed)
+# 1.⁠ ⁠Создать папку reports.
+# 2.⁠ ⁠Внутри папки reports создать папку с названием проекта, которое передано в project_name.
+# 3.⁠ ⁠Внутри папки проекта создать файл report.txt.
+# 4.⁠ ⁠Записать в файл следующую информаци
+# Project: Phonebook
+# Tester: Anna
+# Passed tests: 18
+# Failed tests: 2
+# Total tests: 20
+# Значение Total tests функция должна посчитать самостоятельно:
+# passed + failed
+# create_test_report("Phonebook", "Anna", 18, 2)
+# reports/
+#    Phonebook/
+#        report.txt
+# Project: Phonebook
+# Tester: Anna
+# Passed tests: 18
+# Failed tests: 2
+# Total tests: 20
+# from pathlib import Path
+# Path
+# mkdir()
+# with open(...)
+# "w"
+# encoding="utf-8"
+# file.write()
+#------------------------------------------------------------------
+def create_test_report(project_name, tester_name, passed, failed):
+    project_folder = pathlib.Path("reports") / project_name
+    project_folder.mkdir(exist_ok=True, parents=True)
+    total = passed + failed
+
+    file_path = project_folder/"report.txt"
+    with open(file_path, "w", encoding="utf-8") as file:
+        file.write(f"Project: {project_name}\n")
+        file.write(f"Tester: {tester_name}\n")
+        file.write(f"Passed tests: {passed}\n")
+        file.write(f"Failed tests: {failed}\n")
+        file.write(f"Total tests: {total}\n")
+
+    with open(file_path, "r", encoding="utf-8") as file:
+        print(file.read())
+
+create_test_report("Phonebook", "Anna", 18, 2)
+#------------------------------------------------------------------
