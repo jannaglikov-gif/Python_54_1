@@ -1,5 +1,3 @@
-from pickletools import string1
-
 s = "cat"
 s.upper()
 print(s)

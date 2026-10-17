@@ -1,0 +1,16 @@
+import unittest
+
+def check_password(password):
+    if len(password) < 8:
+        raise ValueError("Password is too short")
+    return True
+
+class TestCheckPasswordLength(unittest.TestCase):
+    def test_short_pass(self):
+        with self.assertRaises(ValueError):
+            check_password(password="234")
+
+    def test_long_pass(self):
+        self.assertTrue(check_password(password="Aa123456"))
+
+
